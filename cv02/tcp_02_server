@@ -1,5 +1,31 @@
 import socketserver
 
+martin = """
+                         __    _                                    \r                                  
+                    _wr""        "-q__                              \r                               
+                 _dP                 9m_                          \r   
+               _#P                     9#_                        \r                  
+              d#@                       9#m                       \r           
+             d##                         ###                      \r    
+            J###                         ###L                      \r   
+            {###K                       J###K                      \r   
+            ]####K      ___aaa___      J####F                      \r   
+        __gmM######_  w#P""   ""9#m  _d#####Mmw__                  \r   
+     _g##############mZ_         __g##############m_               \r   
+   _d####M@PPPP@@M#######Mmp gm#########@@PPP9@M####m_             \r   
+  a###""          ,Z"#####@" '######"\g          ""M##m            \r   
+ J#@"             0L  "*##     ##@"  J#              *#K           \r   
+ #"               `#    "_gmwgm_~    dF               `#_          \r   
+7F                 "#_   ]#####F   _dK                 JE          \r   
+]                    *m__ ##### __g@"                   F          \r   
+                       "PJ#####LP"                                 \r   
+ `                       0######_                      '           \r   
+                       _0########_                                  \r    
+     .               _d#####^#####m__              ,              \r   
+      "*w_________am#####P"   ~9#####mw_________w*"                 \r    
+          ""9@#####@M""           ""P@#####@M""                    \r\n   
+"""
+
 class MyTCPHandler(socketserver.StreamRequestHandler):    
     def handle(self):
         try:
@@ -28,6 +54,8 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
                         self.wfile.write(b"  Daniel Havranek - 221061\r\n")
                     case b'PC':
                         self.wfile.write(b"  PC-075\r\n")
+                    case b'MARTIN':
+                        self.wfile.write(martin.encode('ascii'))
         
         except Exception as e:
             print("[{}]: ER: {}".format(self.client_address[0], e))
